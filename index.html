@@ -1,105 +1,23 @@
 <html>
     <head>
-        <title> Assignment 2 </title>
+        <link rel="stylesheet" href="reset.css">
 
+        <!--pixelated sans font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+        <!--favicon-->
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
         <link rel="manifest" href="/site.webmanifest">
-
-        <!--Used for icons along the bottom of the screen-->
-        <style>
-            .image-container{
-                display: table-cell;
-                vertical-align: middle;
-            }
-        </style>
-
-        <!--Allows for sounds to be played on certain events-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.2.0/buzz.min.js"></script>
     </head>
 
-    <body id="bg" style="background-color: #D4CFE0; text-align: center;"> </body>
-
-    <!--Main Logo-->
-    <div style="text-align: center; vertical-align: middle;">
-        <!--Inflate image on mouseover and click-->
-        <img id="logo" src="img/logo.png" width="200" height="200" style="margin-top: 10; "
-        onmouseleave=" this.width='200'; this.height='200'; this.style='margin-top: 10'; "
-        onmouseover="  this.width='210'; this.height='210'; this.style='margin-top: 5'; "
-        onmouseup="  this.width='210'; this.height='210'; this.style='margin-top: 5'; "
-        onmousedown="  this.width='220'; this.height='220'; this.style='margin-top: 0'; "/>
-    </div>
-
-    <!--Hotbar Items-->
-    <div style="position:absolute; bottom: 10;">
-        <div class="image-container"><img id="home" src="img/home.png"                   width="75" height="75" style="margin: 7.5;"
-            onmouseleave=" this.width='75'; this.height='75'; this.style='margin: 7.5'; "
-            onmouseover="  this.width='85'; this.height='85'; this.style='margin: 2.5'; "
-            onmouseup="  this.width='85'; this.height='85'; this.style='margin: 2.5'; "
-            onmousedown="  this.width='90'; this.height='90'; this.style='margin: 0'; "/></div>
-        <div class="image-container"><img id="notifications" src="img/notifications.png" width="75" height="75" style="margin: 7.5;"
-            onmouseleave=" this.width='75'; this.height='75'; this.style='margin: 7.5'; this.src='img/notifications.png'"
-            onmouseover="  this.width='85'; this.height='85'; this.style='margin: 2.5'; this.src='img/notificationsping.png'"
-            onmouseup="  this.width='85'; this.height='85'; this.style='margin: 2.5'; "
-            onmousedown="  this.width='90'; this.height='90'; this.style='margin: 0'; "/></div>
-        <div class="image-container"><img id="search" src="img/search.png"               width="75" height="75" style="margin: 7.5;"
-            onmouseleave=" this.width='75'; this.height='75'; this.style='margin: 7.5'; "
-            onmouseover="  this.width='85'; this.height='85'; this.style='margin: 2.5'; "
-            onmouseup="  this.width='85'; this.height='85'; this.style='margin: 2.5'; "
-            onmousedown="  this.width='90'; this.height='90'; this.style='margin: 0'; "/></div>
-        <div class="image-container"><img id="create" src="img/create.png"               width="75" height="75" style="margin: 7.5;"
-            onmouseleave=" this.width='75'; this.height='75'; this.style='margin: 7.5'; this.src='img/create.png'"
-            onmouseover="  this.width='85'; this.height='85'; this.style='margin: 2.5'; this.src='img/drafts.png'"
-            onmouseup="  this.width='85'; this.height='85'; this.style='margin: 2.5'; "
-            onmousedown="  this.width='90'; this.height='90'; this.style='margin: 0'; "/></div>
-        <div class="image-container"><img id="chat" src="img/chat.png"                   width="75" height="75" style="margin: 7.5;"
-            onmouseleave=" this.width='75'; this.height='75'; this.style='margin: 7.5'; "
-            onmouseover="  this.width='85'; this.height='85'; this.style='margin: 2.5'; "
-            onmouseup="  this.width='85'; this.height='85'; this.style='margin: 2.5'; "
-            onmousedown="  this.width='90'; this.height='90'; this.style='margin: 0'; "/></div>
-        <div class="image-container"><img id="profile" src="img/profile.png"             width="75" height="75" style="margin: 7.5;"
-            onmouseleave=" this.width='75'; this.height='75'; this.style='margin: 7.5'; "
-            onmouseover="  this.width='85'; this.height='85'; this.style='margin: 2.5'; "
-            onmouseup="  this.width='85'; this.height='85'; this.style='margin: 2.5'; "
-            onmousedown="  this.width='90'; this.height='90'; this.style='margin: 0'; "/></div>
-        <div class="image-container"><img id="theme" src="img/day.png"           width="75" height="75" style="margin: 7.5;"
-            onmouseleave=" this.width='75'; this.height='75'; this.style='margin: 7.5'; "
-            onmouseover="  this.width='85'; this.height='85'; this.style='margin: 2.5'; "
-            onmouseup="  this.width='85'; this.height='85'; this.style='margin: 2.5'; this.src='img/day.png'; bg.style='background-color: #D4CFE0'"
-            onmousedown="  this.width='90'; this.height='90'; this.style='margin: 0'; this.src='img/night.png';bg.style='background-color: #42334E'"/></div>
-        <div class="image-container"><img id="settings" src="img/settings.png"           width="75" height="75" style="margin: 7.5;"
-            onmouseleave=" this.width='75'; this.height='75'; this.style='margin: 7.5'; "
-            onmouseover="  this.width='85'; this.height='85'; this.style='margin: 2.5'; "
-            onmouseup="  this.width='85'; this.height='85'; this.style='margin: 2.5'; "
-            onmousedown="  this.width='90'; this.height='90'; this.style='margin: 0'; "/></div>
-        
-        <!--Sounds on click-->
-        <script>
-            var pop = new buzz.sound("sound/pop.wav");
-            var cup = new buzz.sound("sound/cup.wav");
-            var deskbell = new buzz.sound("sound/deskbell.wav");
-            var ratchet = new buzz.sound("sound/ratchet.wav");
-            var pour = new buzz.sound("sound/pour.wav");
-            var chat = new buzz.sound("sound/chat.wav");
-            var whistle = new buzz.sound("sound/whistle.wav");
-            var off = new buzz.sound("sound/switchoff.wav");
-            var on = new buzz.sound("sound/switchon.wav");
-            var shake = new buzz.sound("sound/shake.wav");
-            
-            window.onload = function() {
-                document.getElementById('logo').addEventListener('click', function () {pop.play();});
-                document.getElementById('home').addEventListener('click', function () {cup.play();});
-                document.getElementById('notifications').addEventListener('click', function () {deskbell.play();});
-                document.getElementById('search').addEventListener('click', function () {ratchet.play();});
-                document.getElementById('create').addEventListener('click', function () {pour.play();});
-                document.getElementById('chat').addEventListener('click', function () {chat.play();});
-                document.getElementById('profile').addEventListener('click', function () {whistle.play();});
-                document.getElementById('theme').addEventListener('mousedown', function () {off.play();});
-                document.getElementById('theme').addEventListener('mouseup', function () {on.play();});
-                document.getElementById('settings').addEventListener('click', function () {shake.play();});
-            };
-        </script>
-    </div>
-
+    <body>
+        <area>
+            <img src="favicon-16x16.png" style="display: inline;">
+            <p style="display: inline;"> luniverse analysis - Paint </p>
+        </area>
+    </body>
 </html>
