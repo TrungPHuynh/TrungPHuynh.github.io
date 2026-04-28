@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="fih" src="img/fsh-spin.gif" width="25%">
+</body>
+
+<script>
+    const fish = document.getElementById ("fih")
+    fish.addEventListener ("mouseover", getfatter)
+    fish.addEventListener ("mouseout", getskinner)
+
+    function getfatter () {
+        fish.style.width = "50%"
+    }
+
+    function getskinner () {
+        fish.style.width = "25%"
+    }
+</script>
+</html>

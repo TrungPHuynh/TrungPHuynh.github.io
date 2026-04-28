@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="rock"      src="img/rock.png"      width="80"/>
+    <img id="paper"     src="img/paper.png"     width="70"/>
+    <img id="scissors"  src="img/scissors.png"  width="70"/>
+</body>
+
+<script>
+    const rock      = document.getElementById ("rock")
+    const paper     = document.getElementById ("paper")
+    const scissors  = document.getElementById ("scissors")
+
+    rock.addEventListener       ("pointerdown", () => gamble ("rock"))
+    paper.addEventListener      ("pointerdown", () => gamble ("paper"))
+    scissors.addEventListener   ("pointerdown", () => gamble ("scissors"))
+
+    function gamble (choice) {
+        console.log ("you chose", choice)
+
+        const num = Math.floor (Math.random () * 3)
+        const options = ["rock", "paper", "scissors"]
+        const compchoice = options[num]
+        console.log ("computer chose", compchoice)
+
+        const wincon = {
+            "rock":     "scissors",
+            "paper":    "rock",
+            "scissors": "rock"
+        }
+
+        if (choice === compchoice) console.log ("TIE")
+        else if (wincon[choice] === compchoice) console.log ("WIN")
+        else console.log ("LOSE")
+        
+    }
+
+    console.log ("running")
+</script>
+
+</html>
