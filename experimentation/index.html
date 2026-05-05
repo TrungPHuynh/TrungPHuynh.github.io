@@ -6,20 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <img id="fih" src="img/fsh-spin.gif" width="25%">
+    <button id="btnBell">the bell tolls</button>
+    <audio id="sndBell">
+        <source src="audio/Bell.wav">
+    </audio>
 </body>
 
 <script>
-    const fish = document.getElementById ("fih")
-    fish.addEventListener ("mouseover", getfatter)
-    fish.addEventListener ("mouseout", getskinner)
+    const sound = new Audio ("audio/Bell.wav")
+    const bell = document.getElementById ("btnBell")
 
-    function getfatter () {
-        fish.style.width = "50%"
-    }
-
-    function getskinner () {
-        fish.style.width = "25%"
-    }
+    bell.onclick = () => sound.play ()
+    
 </script>
 </html>
