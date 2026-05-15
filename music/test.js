@@ -14,31 +14,41 @@ cnv.height = window.innerHeight
 
 // get audio player element
 const music = document.getElementById ('music')
-music.play()
 music.volume = 0.5
 
 // get progress bar element
 const bar = document.getElementById ('bar')
 
 // dynamic values used for drawing stars based on current audio settings
+let hold = 0 // a timer used to check if the user is tapping or dragging
+let holdchase = 0 // a value that hold will "chase" after for smooth transitions
 let brightness = 0 // accepts 0 to 1
-let brightnesschase = 1 // a value that brightness will "chase" after for smooth transitions
+let brightnesschase = 0.5
 
 
 // !! AUDIO PLAYER LOGIC !!
 // update progress bar
-music.addEventListener('timeupdate', function() { 
+music.addEventListener('timeupdate', function(event) { 
     bar.style.width = cnv.width * music.currentTime / music.duration 
 })
 
-// toggle play/pause on click
+// scrub time when dragging
+cnv.addEventListener('mousedown', function(event) {
+    hold = 0
+    holdchase = 1
+})
+
+// toggle play/pause on a tap
 cnv.addEventListener('mouseup', function() {
-    if (!music.paused) {
-        music.pause()
-        brightnesschase = 0
-    } else {
-        music.play()
-        brightnesschase = 1
+    // abort if enough time has passed between mousedown and mouseup
+    if (hold != holdchase) { 
+        if (!music.paused) {
+            music.pause()
+            brightnesschase = 0
+        } else {
+            music.play()
+            brightnesschase = music.volume
+        }
     }
 })
 
@@ -94,6 +104,7 @@ function drawStars () {
 
     // update chase values
     brightness += Math.max(Math.min(brightnesschase - brightness, 0.01), -0.01)
+    hold += Math.max(Math.min(holdchase - hold, 0.05), -0.05)
 
     // colour stars white
     for (const array in stars) {
