@@ -1,0 +1,22 @@
+/* Code written by Trung Huynh
+All code is produced without the use of AI
+*/
+body {
+    position: relative;
+}
+
+.progress {
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+    opacity: 10%;
+    width: 100%;
+    height: 1rem;
+}
+
+#bar {
+    background-color: white;
+    opacity: 20%;
+    width: 0%;
+    height: 1rem;
+}
